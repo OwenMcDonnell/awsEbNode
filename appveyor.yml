@@ -2,7 +2,7 @@ version: 1.0.{build}
 install:
 - ps: cmd /c npm install
 build_script:
-- ps: >-
+- ps: |
     $newContent = (Get-Content ./views/index.pug).Replace("#{title}", "#{title}-$env:APPVEYOR_BUILD_NUMBER")
 
     Set-Content -Value $newContent -Path ./views/index.pug
