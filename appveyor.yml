@@ -8,17 +8,11 @@ build_script:
     Set-Content -Value $newContent -Path ./views/index.pug
 
     7z a awsEbNodeApp.zip views/* app.js package.json routes/* public/* bin/*
-artifacts:
-- path: awsEbNodeApp.zip
-  type: ElasticBeanstalkPackage
-deploy:
-- provider: ElasticBeanstalk
-  access_key_id: AKIAJEL7YZLCACRKJNRA
-  secret_access_key:
-    secure: Ef48bJ+oZMAYCKq55ze4j0LKdqsJ27uVFJo1rAtTpgkpltlZVGvCMYgwVM+gb/r/
-  application_name: appveyor-node-deploy
-  environment_name: appveyor-node-deploy-env
-  region: us-east-2
-  healthcheck: /
-  artifact: awsEbNodeApp.zip
-  max_error_retry: 2
+for:
+- 
+  branches:
+    only: 
+     - \no-deploy\
+     
+  version: 1.0.{build}-{branch}
+  do_not_increment_build_number: true
