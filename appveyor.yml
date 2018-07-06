@@ -12,7 +12,7 @@ for:
 - 
   branches:
     only: 
-     - \no-deploy\
+     - \testPR\
      
   version: 1.0.{build}-{branch}
   pull_requests:
