@@ -12,13 +12,5 @@ artifacts:
 - path: awsEbNodeApp.zip
   type: ElasticBeanstalkPackage
 deploy:
-- provider: ElasticBeanstalk
-  access_key_id: AKIAJEL7YZLCACRKJNRA
-  secret_access_key:
-    secure: Ef48bJ+oZMAYCKq55ze4j0LKdqsJ27uVFJo1rAtTpgkpltlZVGvCMYgwVM+gb/r/
-  application_name: appveyor-node-deploy
-  environment_name: appveyor-node-deploy-env
-  region: us-east-2
-  healthcheck: /
-  artifact: awsEbNodeApp.zip
-  max_error_retry: 2
+- provider: Environment
+  name: appveyor-eb-env-deploy
